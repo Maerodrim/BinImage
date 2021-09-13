@@ -129,6 +129,16 @@ public:
         binaryElements = new bool[m_rows * m_cols];
     }
 
+    double fullness() {
+        int fullness;
+        for (int i = 0; i < m_rows; i++) {
+            for (int j = 0; j < m_cols; j++) {
+                if (get(i, j)) fullness++;
+            }
+        }
+        return (double) fullness/(m_rows* m_cols);
+    }
+
     image operator!() {
         image result(m_rows, m_cols);
         for (int i = 0; i < m_rows; i++) {
